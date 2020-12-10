@@ -17,6 +17,7 @@ def get_number(text):
 
 
 class ApartmentItem(Item):
+    id = Field(input_processor=MapCompose(clean_input), output_processor=TakeFirst())
     url = Field(input_processor=MapCompose(clean_input), output_processor=TakeFirst())
     title = Field(input_processor=MapCompose(clean_input), output_processor=TakeFirst())
     short_detail = Field(input_processor=MapCompose(clean_input), output_processor=TakeFirst())

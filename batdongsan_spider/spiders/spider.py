@@ -8,13 +8,13 @@ class DBSspider(Spider):
     # allowed_domains = ['https://batdongsan.com.vn/']
 
     def start_requests(self):
-        start_url = 'https://batdongsan.com.vn/ban-can-ho-chung-cu-ha-noi'
-        for i in range(1, 886):
-            yield Request(url=start_url + '/p' + str(i), callback=self.parse_link)
+        # start_url = 'https://batdongsan.com.vn/ban-can-ho-chung-cu-ha-noi'
+        # for i in range(1, 886):
+        #     yield Request(url=start_url + '/p' + str(i), callback=self.parse_link)
 
         # one page
-        # url = 'https://batdongsan.com.vn/ban-can-ho-chung-cu-duong-5-xa-dong-hoi-prj-eurowindow-river-park/chi-23-7tr-m2-91m2-3pn-2vs-full-noi-that-co-ban-view-nam-h-long-bien-pr28106294'
-        # yield Request(url, callback=self.parse_features)
+        url = 'https://batdongsan.com.vn/ban-can-ho-chung-cu-duong-5-xa-dong-hoi-prj-eurowindow-river-park/chi-23-7tr-m2-91m2-3pn-2vs-full-noi-that-co-ban-view-nam-h-long-bien-pr28106294'
+        yield Request(url, callback=self.parse_features)
 
     def parse_link(self, response):
         # base_url = 'https://batdongsan.com.vn'
@@ -40,5 +40,6 @@ class DBSspider(Spider):
         l.add_xpath('project', '//*[@id="product-detail-web"]/div[5]/div[3]/div/div[contains(span[1]/text(), "Tên")]/span[2]/text()[1]')
         l.add_xpath('investor', '//*[@id="product-detail-web"]/div[5]/div[3]/div/div[contains(span[1]/text(), "Chủ")]/span[2]/text()[1]')
         l.add_xpath('post_date', '//*[@id="product-detail-web"]/div[5]/div[8]/ul/li[1]/span[2]/text()')
+        l.add_xpath('id', '//*[@id="product-detail-web"]/div[5]/div[8]/ul/li[contains(span[1]/text(), "Mã")]/span[2]/text()')
 
         yield l.load_item()
