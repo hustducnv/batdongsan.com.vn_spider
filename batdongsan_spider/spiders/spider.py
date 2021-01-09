@@ -8,14 +8,14 @@ class DBSspider(Spider):
     # allowed_domains = ['https://batdongsan.com.vn/']
 
     def start_requests(self):
-        # start_url = 'https://batdongsan.com.vn/ban-can-ho-chung-cu-ha-noi'
-        # for i in range(1, 886):
-        #     yield Request(url=start_url + '/p' + str(i), callback=self.parse_link)
+        start_url = 'https://batdongsan.com.vn/ban-can-ho-chung-cu-ha-noi'
+        for i in range(1, 886):
+            yield Request(url=start_url + '/p' + str(i), callback=self.parse_link)
 
-        # one page
-        url = 'https://batdongsan.com.vn/ban-can-ho-chung-cu-pho-hoang-cau-phuong-o-cho-dua-prj-d-le-pont-dor-hoang-cau/chinh-chu-ban-gap-tai-du-an-tan-ang-minh-36-ang-98m2-2pn-gia-4-8-ty-lh-0975357268-pr26919881'
-        # url = 'https://batdongsan.com.vn/ban-can-ho-chung-cu-duong-5-xa-dong-hoi-prj-eurowindow-river-park/chi-23-7tr-m2-91m2-3pn-2vs-full-noi-that-co-ban-view-nam-h-long-bien-pr28106294'
-        yield Request(url=url, callback=self.parse_features)
+        # # one page
+        # url = 'https://batdongsan.com.vn/ban-can-ho-chung-cu-pho-hoang-cau-phuong-o-cho-dua-prj-d-le-pont-dor-hoang-cau/chinh-chu-ban-gap-tai-du-an-tan-ang-minh-36-ang-98m2-2pn-gia-4-8-ty-lh-0975357268-pr26919881'
+        # # url = 'https://batdongsan.com.vn/ban-can-ho-chung-cu-duong-5-xa-dong-hoi-prj-eurowindow-river-park/chi-23-7tr-m2-91m2-3pn-2vs-full-noi-that-co-ban-view-nam-h-long-bien-pr28106294'
+        # yield Request(url=url, callback=self.parse_features)
 
     def parse_link(self, response):
         # base_url = 'https://batdongsan.com.vn'
